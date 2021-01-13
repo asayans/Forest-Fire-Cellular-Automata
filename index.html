@@ -28,18 +28,18 @@
 					<div class="wind_dir_div">
 						<label>Wind Direction </label><input value="0" max="7" type="range" id="wind_dir" onclick="change_settings()"></input>
 						<div class="coords">
-							<div><a onclick="change_slider(0)">N</a></div>
-							<div><a onclick="change_slider(1)">NW</a></div>
-							<div><a onclick="change_slider(2)">W</a></div>
-							<div><a onclick="change_slider(3)">SW</a></div>
-							<div><a onclick="change_slider(4)">S</a></div>
-							<div><a onclick="change_slider(5)">SE</a></div>
-							<div><a onclick="change_slider(6)">E</a></div>       
-							<div><a onclick="change_slider(7)">NE</a></div>   
+							<div><a onclick="change_slider(0); change_settings()">N</a></div>
+							<div><a onclick="change_slider(1); change_settings()">NW</a></div>
+							<div><a onclick="change_slider(2); change_settings()">W</a></div>
+							<div><a onclick="change_slider(3); change_settings()">SW</a></div>
+							<div><a onclick="change_slider(4); change_settings()">S</a></div>
+							<div><a onclick="change_slider(5); change_settings()">SE</a></div>
+							<div><a onclick="change_slider(6); change_settings()">E</a></div>       
+							<div><a onclick="change_slider(7); change_settings()">NE</a></div>   
 						</div>
 					</div>	
 					<div class="wind_power_div">	
-						<label>Wind Power </label><input value="0" max="50" type="range" id="wind_power" onclick="change_settings()"> <span id="wind_power_stat">0 kmph</span></input>
+						<label>Wind Power </label><input value="0" max="75" type="range" id="wind_power" onclick="change_settings()"> <span id="wind_power_stat">0 kmph</span></input>
 					</div>
 					<div class="fps_div">
 						<label>Simulation Speed </label><input value="20" min="1" max="20" type="range" id="fps" onclick="change_settings()"> <span id="fps_stat">20 fps</span></input>

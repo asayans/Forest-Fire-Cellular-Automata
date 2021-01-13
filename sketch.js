@@ -179,7 +179,7 @@ let canvasForest = new p5(( sketch ) => {
     let win_dir_vector = wind_dir_map[wind_dir];
     θ = prop_dir.angleBetween(win_dir_vector);
     
-    p0= 0.58; as= 10; c1= 0.045; c2= 0.131; // Valores obtenidos a partir de la experimentación
+    p0= 0.58; as= 8.5; c1= 0.045; c2= 0.131; // Valores obtenidos a partir de la experimentación
     v = wind_power/3.6; // Se convierte de km/h a m/s
     pw= sketch.exp(v*(c1+c2*(sketch.cos(θ)-1)));
     
