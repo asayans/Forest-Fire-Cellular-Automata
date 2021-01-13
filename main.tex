@@ -1,0 +1,285 @@
+\documentclass[a4paper]{article}
+
+%% Language and font encodings
+\usepackage[spanish]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=2cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+
+
+\title{Nuestro maravilloso trabajo para la asignatura de\\
+Procesamiento de Imágenes Digitales}
+\author{U. Autora, O. Autor}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+ \noindent El resumen debe tener como máximo 250 palabras y ser un único párrafo. El resumen debe describir lo más fielmente posible el trabajo realizado (no el propuesto inicialmente, que podría ser distinto). Aquí se presentan las indicaciones para realizar el trabajo de PID, al mismo tiempo que la estructura que debe tener la documentación a presentar. 
+
+\hspace{1cm}
+
+\noindent \textbf{Palabras clave:} 
+%(hasta cinco palabras que clasifiquen el trabajo) 
+PID, instrucciones, trabajo en grupo, imagen digital.
+\end{abstract}
+
+
+\section{Introducción}
+
+El trabajo de PID debe ser un trabajo que sirva para profundizar en algunos aspectos del procesamiento de imágenes digitales. Se debe trabajar sobre un tema concreto de procesamiento de imágenes {\bf apoyándose en artículo(s) de investigación} relativamente reciente(s) o en capítulos de libros científicos.
+
+El objetivo de los trabajos dirigidos consiste en la realización de una {\bf aplicación didáctica}, extrayendo las ideas principales de la documentación utilizada. Esto significa, por tanto, que {\bf no} debe hacerse una transcripción exacta de lo que aparece en el artículo de investigación referenciado. Tanto la aplicación como la documentación y la exposición deben mostrar cómo se resuelve el problema planteado de forma didáctica, explicando cada uno de los pasos requeridos para llegar al resultado final.
+
+Los trabajos se realizarán en grupos de trabajo de tres personas, preferiblemente. Sin embargo en casos excepcionales, se pueden realizar en grupo de dos personas.  Se realizarán cuatro sesiones de seguimiento del trabajo, donde \textbf{todos} los miembros del grupo participarán. 
+
+La \textbf{propuesta del trabajo dirigido} (TD) la expondrán  \textbf{los miembros del grupo}  en la sesión \textbf{Seguimiento 1} al profesorado. En dicha sesión, los miembros del grupo indicarán  qué trabajo anterior (TA) asociado será revisado por parte del grupo. El profesorado proporcionará un cuestionario sobre ese TA que debe ser entregado en la sesión \textit{Seguimiento 2}.
+
+En el portal OPERA, al que se accede mediante la dirección \url{https://opera.eii.us.es/pid}, se encuentran los TA para su consulta. Para la búsqueda de artículos, se pueden consultar revistas internacionales así como bases de datos de revistas en el catálogo fama de la US \url{http://fama.us.es/}. Se recomienda la base de datos ScienceDirect (Elsevier), IEEE Xplore y Sringerlink. Si se accede desde casa, se debe pinchar el icono correspondiente (acceso desde casa) a la hora de seleccionar la base de datos que se desea consultar. También se recomienda la consulta de los trbajos dirigidos de la asignatura EE368/CS232: Digital Image Processing de la Universidad de Stanford a la que se accede mediante la dirección \url{https://web.stanford.edu/class/ee368/}.
+
+
+Aparte de la entrega del cuestionario relleno del TA, en la sesión \textbf{Seguimiento 2} se debe entregar la planificación inicial y la lista de objetivos del TD. Se recuerda que en la planificación se debe detallar cómo se distribuirán las 70 horas/persona que el grupo debe dedicar al TD, incluidas las horas dedicadas a realizar el cuestionario del TA, las sesiones de seguimiento y las sesiones de presentación de trabajos propuestos.  
+
+Se puede usar, por ejemplo, Projetsii \url{https://projetsii.informatica.us.es/} para realizar esta planificación inicial y posterior seguimiento del desarrollo del trabajo. Téngase en cuenta que las horas de dedicación de \textbf{cada alumno} han de ser \textbf{70 horas} (correspondientes a 7 semanas de trabajo del alumno). Será obligatorio presentar la revisión final de esta planificación o tabla de tiempos.
+
+En la sesión \textbf{Seguimiento 3}, se mostrará una primera versión de la documentación y de la aplicación. Se revisarán los objetivos iniciales planteados y se mostrará la hoja de tiempos realizada hasta ese momento.
+
+En la sesión \textbf{Seguimiento 4}, se mostrará una primera versión de la presentación, junto con una revisión de la documentación y de la aplicación. 
+
+En la siguiente tabla se resumen los objetivos de cada sesión de seguimiento. 
+
+    \begin{center}
+    \begin{tabular}{|c||l|}
+    \hline
+  Seguimiento 1 & Propuesta del TD basándose en un artículo de  investigación.  \\
+  & Propuesta del TA. \\
+\hline
+Seguimiento 2  & Cuestionario sobre el TA. \\& Planificación inicial.   \\& Lista de objetivos. \\
+\hline
+ Seguimiento 3 & Primera versión de la documentación y de la aplicación.\\
+& Objetivos revisados. \\&  Hoja de tiempos hasta el momento.\\
+\hline
+ Seguimiento 4 & Primera versión de la presentación.  \\& Revisión de la documentación  y de la  aplicación.\\
+\hline
+    \end{tabular}
+    \end{center}
+    
+    En la siguiente tabla se muestran las fechas de cada \textbf{sesión de seguimiento para cada grupo}. Las sesiones de seguimiento se realizarán en horario de clase.
+    
+     \begin{center}
+    \begin{tabular}{|c||r|r|}
+    \hline
+    & Grupos 1,2,3,4 & Grupos 5,6,7,8\\
+    \hline\hline
+  Seguimiento 1 & 9 de diciembre & 14 de diciembre\\
+\hline
+Seguimiento 2  & 16 de diciembre & 21 de diciembre\\
+\hline
+ Seguimiento 3 &11 de enero & 13 de enero\\
+\hline
+ Seguimiento 4 & 18 de enero&20 de enero\\
+\hline
+    \end{tabular}
+    \end{center}
+    
+\textbf{Todos} los miembros del grupo deberán \textbf{intervenir en la exposición final}, en la que deberán defender su trabajo y comentar los logros teóricos y de implementación obtenidos. Además, deberá hacerse algún ejemplo usando la aplicación desarrollada (\textbf{20 minutos en total}). Las exposiciones se realizarán en horario de clase.
+
+    En la siguiente tabla se muestran las fechas de  \textbf{las exposiciones de cada grupo}. Las exposiones se realizarán en horario de clase.
+
+\begin{center}
+    \begin{tabular}{|c||r|r|}
+    \hline
+     &Grupos 1,2,3,4 & Grupos 5,6,7,8\\
+    \hline\hline
+  Fecha de la exposición & 25 de enero & 27 de enero \\
+\hline
+    \end{tabular}
+    \end{center}
+
+Antes del  \textbf{29 de enero}, \textbf{todos los miembros del grupo} deberán subir a una actividad creada para tal efecto, un archivo \url{.zip} conteniendo lo siguiente:
+
+ \begin{itemize}
+\item \url{documentacion.pdf}. Consiste en un fichero \url{.pdf} correspondiente a la documentación. 
+
+Estructura de la documentación:
+
+\begin{enumerate}
+\item[]  Título
+\item[]  Autores
+\item[]  Resumen
+\item  Introducción 
+\item  Planteamiento teórico 
+\item  Implementación
+\item  Experimentación
+\item  Manual de usuario
+\item  Conclusiones
+\item Autoevaluación
+\item  Tabla de tiempos
+\item[]  Bibliografía
+\end{enumerate}
+
+Se puede usar el fichero \url{main.tex} disponible en enseñanza virtual como plantilla de Latex\footnote{Véase el Anexo para algunos apuntes rápidos sobre escritura de textos en LaTex (tomados de \url{Overleaf.com}.}, que es el que se ha usado en este documento. Se recomienda el uso de editores online de LaTeX como \url{Overleaf.com} o \url{ShareLaTeX.com}.
+
+Las referencias se citan así:
+bla, bla \cite{clave:revista}, bla, bla \cite{clave:libro}. La bibliografía
+debe seguir el estilo de este documento, con las referencias ordenadas alfabéticamente por autores.
+
+\item \url{codigo.zip}. Debe contener todo el código utilizado, comentado y modulado.
+\item \url{ejecutable.zip}. Debe contener el ejecutable (si existiera) junto con todos los archivos necesarios para su ejecución de forma que no dé errores de compilación.
+Debe contener un {\bf leeme.txt} con instrucciones para ejecutar la aplicación.
+Se debe incluir una \textbf{carpeta con imágenes de muestra}.
+\item \url{images.zip} Debe contener las imágenes usadas en la experimentación. La aplicación debe llamar a las imágenes desde una carpeta llamada \textit{images} que se encuentre en la misma carpeta que la aplicación.
+\item \url{presentacion.pdf}. Consiste en un fichero \url{.pdf} con la presentación que se ha usado en clase para exponer el trabajo.
+\end{itemize}
+
+La evaluación del trabajo se realizará en base a una rúbrica que se proporcionará en la plataforma de Enseñanza Virtual.
+
+
+\section{Planteamiento teórico}
+
+
+
+La sección \textit{Planteamiento teórico} debe plantear el problema a resolver, así como describir los métodos propuestos para su resolución. 
+
+
+
+
+
+
+
+\section{Implementación}
+
+Esta sección debe incluir la descripción de la implementación (pero no el código), especificando las tecnologías usadas, cómo se ha diseñado la aplicación, cuáles son su módulos o partes principales. \textbf{Debe quedar muy claro cuál es la parte original implementada en el programa, qué librerías se han usado y de dónde se han cogido, con referencias apropiadas}. Se debe describir (tanto en la aplicación, como en la documentación, como en la presentación) los pasos seguidos para resolver el problema que se plantea de la forma más divulgativa posible. 
+
+Se puede usar el lenguaje de programación que se quiera. Se pueden usar librerías o códigos fuentes de trabajos de otros años, de internet, etc., siempre y cuando se referencien adecuadamente. Si se usa java para un trabajo de imágenes 2D, se recomienda usar el paquete \url{ImageJ} que se puede descargar en \url{http://rsbweb.nih.gov/ij/}. El trabajo dirigido se puede insertar como un plugin. Si se trabaja con Java y con imágenes 3D, se recomienda instalar el paquete Java3D que se puede descargar de la página \url{http://www.java3d.org/}. Si se desea trabajar en C++ o en Python, se recomienda usar la librería \url{OpenCV}, que se puede descargar de la página \url{https://opencv.org/releases.html}. Matlab posee también un toolbox de procesamiento de imágenes que se puede usar en los laboratorios de la escuela. Éstas sólo son algunas indicaciones.
+
+
+
+\section{Experimentación}
+
+Una sección de ejemplos comentados y pruebas realizadas con el programa desarrollado es imprescindible en este trabajo. Igualmente importantes serán las conclusiones que se puedan obtener de la experimentación realizada. 
+
+
+\section{Manual de usuario}
+
+Se debe incluir un breve manual de usuario. 
+
+\section{Conclusiones}
+
+Se debe introducir una sección de conclusiones que incluyan propuestas claras de mejora o extensión del trabajo (por ejemplo, si no se han podido alcanzar todos los objetivos iniciales). También conclusiones sobre los resultados obtenidos, en qué medida difieren de los esperados. También son apropiadas conclusiones sobre las desviaciones en cuanto a la planificación inicial y conclusiones sobre la experiencia de la realización del trabajo.
+
+\section{Autoevaluación}
+
+Siguiendo la rúbrica dada, se debe detallar, por parte de  \textbf{cada miembro del grupo}, la puntuación que se considera justa en cada apartado. 
+
+\section{Tabla de tiempos}
+
+
+Se debe justificar el trabajo realizado por cada componente del grupo, indicando el {\bf tiempo total que cada miembro del grupo ha dedicado} al trabajo (lo que puede implicar diferencia de notas obtenidas por los distintos miembros del grupo). El trabajo realizado debe ser de {\bf 70 horas por alumno}. Además, debe haber un plan de trabajo detallado con las tareas realizadas por cada miembro del grupo. Para esto último, se puede usar la tabla siguiente o bien documentos generados por la herramienta de gestión de proyectos que se use, como Projetsii o Microsoft Project, por ejemplo.
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+ Fecha de la
+ actividad 
+&  Inicio 
+&  Fin 
+& Tiempo
+& Miembros
+& Actividad realizada
+\\\hline
+\mbox{ }&\mbox{}&\mbox{ }&\mbox{}&\mbox{ }&\mbox{}\\
+\mbox{ }&\mbox{}&\mbox{ }&\mbox{}&\mbox{ }&\mbox{}\\\hline
+\end{tabular}
+\end{center}
+
+
+\begin{thebibliography}{10}
+
+
+
+\bibitem{clave:libro}
+U. N. Experto, \emph{Un libro que escribí},
+Editorial, 1996.
+
+\bibitem{clave:revista}
+Y. O. Mismo,
+``Título del artículo'',
+\emph{Revista Publicación Periódica}, Vol. 17, pp. 1-100, 1997.
+\end{thebibliography}
+
+\newpage 
+
+\section*{More about how to write an article}
+\subsection{How to include Figures}
+
+First you have to upload the image file from your computer using the upload link the project menu. Then use the includegraphics command to include it in your document. Use the figure environment and the caption command to add a number and a caption to your figure. See the code for Figure \ref{fig:frog} in this section for an example.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.3\textwidth]{frog.jpg}
+\caption{\label{fig:frog}This frog was uploaded via the project menu.}
+\end{figure}
+
+
+\subsection{How to add Tables}
+
+Use the table and tabular commands for basic tables. See Table~\ref{tab:widgets}, for example. 
+
+\begin{table}[h]
+\centering
+\begin{tabular}{l|r}
+Item & Quantity \\\hline
+Widgets & 42 \\
+Gadgets & 13
+\end{tabular}
+\caption{\label{tab:widgets}An example table.}
+\end{table}
+
+\subsection{How to write Mathematics}
+
+\LaTeX{} is great at typesetting mathematics. Let $X_1, X_2, \ldots, X_n$ be a sequence of independent and identically distributed random variables with $\text{E}[X_i] = \mu$ and $\text{Var}[X_i] = \sigma^2 < \infty$, and let
+\[S_n = \frac{X_1 + X_2 + \cdots + X_n}{n}
+      = \frac{1}{n}\sum_{i}^{n} X_i\]
+denote their mean. Then as $n$ approaches infinity, the random variables $\sqrt{n}(S_n - \mu)$ converge in distribution to a normal $\mathcal{N}(0, \sigma^2)$.
+
+
+\subsection{How to create Sections and Subsections}
+
+Use section and subsections to organize your document. Simply use the section and subsection buttons in the toolbar to create them, and we'll handle all the formatting and numbering automatically.
+
+\subsection{How to add Lists}
+
+You can make lists with automatic numbering  or bullet points \dots
+
+\begin{enumerate}
+\item Like this,
+\item and like this.
+\end{enumerate}
+
+\begin{itemize}
+\item Like this,
+\item and like this.
+\end{itemize}
+
+%\subsection{How to add Citations and a References List}
+
+%You can upload a \verb|.bib| file containing your BibTeX entries, created with JabRef; or import your \href{https://www.overleaf.com/blog/184}{Mendeley}, CiteULike or Zotero library as a \verb|.bib| file. You can then cite entries from it, like this: \cite{greenwade93}. Just remember to specify a bibliography style, as well as the filename of the \verb|.bib|.
+
+%You can find a \href{https://www.overleaf.com/help/97-how-to-include-a-bibliography-using-bibtex}{video tutorial here} to learn more about BibTeX.
+
+
+
+%\bibliographystyle{alpha}
+%\bibliography{sample}
+
+\end{document}

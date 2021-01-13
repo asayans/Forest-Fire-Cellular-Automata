@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+	<title>Forest Fire</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.min.js"></script>
+
+	<script type="text/javascript" src="sketch.js"></script>
+	
+<body>
+	<h4 class="title">Fire Spread Simulation</h4>
+	<div class="contenedor">
+		<div id="canvasHolder"></div>
+		<div class="side">
+			<div class="height_map">
+				<div id="canvasHolder2"></div>
+				<img src="img/pipo.png" class="height_legend"/>
+			</div>
+			<div class="settings">
+				<div class="left_side_menu">
+					<div class="wind_dir_div">
+						<label>Wind Direction </label><input value="0" max="7" type="range" id="wind_dir" onclick="change_settings()"></input>
+						<div class="coords">
+							<div><a onclick="change_slider(0)">N</a></div>
+							<div><a onclick="change_slider(1)">NW</a></div>
+							<div><a onclick="change_slider(2)">W</a></div>
+							<div><a onclick="change_slider(3)">SW</a></div>
+							<div><a onclick="change_slider(4)">S</a></div>
+							<div><a onclick="change_slider(5)">SE</a></div>
+							<div><a onclick="change_slider(6)">E</a></div>       
+							<div><a onclick="change_slider(7)">NE</a></div>   
+						</div>
+					</div>	
+					<div class="wind_power_div">	
+						<label>Wind Power </label><input value="0" max="50" type="range" id="wind_power" onclick="change_settings()"> <span id="wind_power_stat">0 kmph</span></input>
+					</div>
+					<div class="fps_div">
+						<label>Simulation Speed </label><input value="20" min="1" max="20" type="range" id="fps" onclick="change_settings()"> <span id="fps_stat">20 fps</span></input>
+					</div>
+				</div>
+				<div class="right_side_menu">
+
+					<div class="switches">
+						<div class="switch">
+							<label>
+							Height
+							<input id="height" type="checkbox" onclick="change_settings()">
+							<span class="lever"></span>
+							</label>
+						</div>
+						<div class="switch">
+							<label>
+							Vegetation density
+							<input id="density" type="checkbox" onclick="change_settings()">
+							<span class="lever"></span>
+							</label>
+						</div>
+					</div>
+					<div class="reset">
+						<div class="switch">
+							<label>
+							Generate new map
+							<a onclick="setup()"><i class="fas fa-sync fa-2x reset_icon"></i></a>
+							</label>
+						</div>
+					</div>
+					<div class="player">
+						<label>Simulation controls</label></br>
+						<button class="button" id="stop" onclick="stop()"><i class="fas fa-stop"></i></button>
+						<button class="button" id="pause_resume" onclick="pause_resume()"><i class="fas fa-pause"></i></button>
+						<button class="button" id="next" onclick="nextTimeStep()" disabled><i class="fas fa-fast-forward"></i></button>
+					</div>
+				</div>
+		</div>
+		</div>
+	</div>
+</body>
+	<script>
+	
+	$(document).on('input change', '#wind_power', function() {
+		$('#wind_power_stat').html( $(this).val() + " kmph" );});
+
+	$(document).on('input change', '#fps', function() {
+		$('#fps_stat').html( $(this).val() + " fps"  );});
+		
+	</script>
+</html>
