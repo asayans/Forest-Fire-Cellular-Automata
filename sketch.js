@@ -20,6 +20,11 @@ let rows = 80
 let width  = cols*resolution
 let height = rows*resolution
 
+let autoMode = false
+let pBurnFromNothin = 0.00001
+let pRegenerate = 0.02
+let time2Able2Regenerate = 20
+let readyToRegenerateMap;
 
 let pden = {1:-0.3,
             10:0,
@@ -46,6 +51,7 @@ function change_settings() {
   fps = document.getElementById("fps").value;
   heightOn = document.getElementById("height").checked;
   density = document.getElementById("density").checked;
+  autoMode = document.getElementById("autoMode").checked;
 }
 
 function change_slider(coord) {
@@ -158,19 +164,19 @@ let canvasForest = new p5(( sketch ) => {
   sketch.stop = () => {
     grid = initial_state
     fire_map = new Map();
+    readyToRegenerateMap = new Map();
   }
 
   function add2FireMap(i,j){
-    if(!(fire_map.has([i,j]))){
       fire_map.set([i,j], extinct_time);
-    }
+
   }
 
-  function add2FireMapTemp(i,j){
-    if(!(fire_map_temp.has([i,j]))){
-      fire_map_temp.set([i,j], extinct_time);
-    }
+  function add2ReadyToRegenerateMap(i,j){
+    readyToRegenerateMap.set(i.toString() + j.toString(), time2Able2Regenerate);
+
   }
+
   
   function propagationProbability(grid, i, j, nx, ny) {
     let dx = nx-i;
@@ -206,6 +212,7 @@ let canvasForest = new p5(( sketch ) => {
   }
   
   sketch.mouseClicked = () => {
+
     var x = sketch.floor(sketch.mouseX/resolution);
     var y = sketch.floor(sketch.mouseY/resolution);
     
@@ -236,10 +243,24 @@ let canvasForest = new p5(( sketch ) => {
     }
     return burning_neighbors;
   }
+
+  function getVegetationType(i,j){
+    let h = heightMap[i][j]/500
+    if (h > 0.2 && h <= 0.3)
+      type = VEGETATION3
+    else if (h > 0.3 && h <= 0.60)
+      type = VEGETATION2
+    else if (h > 0.6)
+      type = VEGETATION1
+    else
+      type = WATER
+    return type
+  }
   
   sketch.setup = () => {
 
     fire_map = new Map();
+    readyToRegenerateMap = new Map();
     sketch.frameRate(fps);
     wind_dir_map = {
                     N: sketch.createVector(0,  1),
@@ -257,16 +278,8 @@ let canvasForest = new p5(( sketch ) => {
     
     for (let i = 0; i < cols; i++) {
       for (let j = 0; j < rows; j++) {
-        let h = heightMap[i][j]/500
-        if (h > 0.2 && h <= 0.3)
-          type = VEGETATION3
-        else if (h > 0.3 && h <= 0.60)
-          type = VEGETATION2
-        else if (h > 0.6)
-          type = VEGETATION1
-        else
-          type = WATER
-        grid[i][j] = type
+        
+        grid[i][j] = getVegetationType(i,j)
       }
     }
     initial_state = grid
@@ -368,6 +381,7 @@ let canvasForest = new p5(( sketch ) => {
 
       // Calcula el siguiente grid basándose en los settings 
       // y en el estado del grid actualmente
+      
       for (let i = 0; i < cols; i++) {
         for (let j = 0; j < rows; j++) {
           let state = grid[i][j];
@@ -375,30 +389,57 @@ let canvasForest = new p5(( sketch ) => {
           
           if (state == VEGETATION1 || state == VEGETATION2 || state == VEGETATION3 ){
             let burning_neighbors = getBurningNeighbors(grid, i, j);
-            
-            for (const [nx, ny] of burning_neighbors) {
-              let p = propagationProbability(grid, i, j , nx,ny);
-              if(Math.random()<p){
-                next[i][j] = 2;
-                add2FireMap(i,j)
-                break;
+            if(Math.random()<pBurnFromNothin && autoMode){
+              next[i][j] = 2;
+              add2FireMap(i,j)
             }
+            else{
+              for (const [nx, ny] of burning_neighbors) {
+                let p = propagationProbability(grid, i, j , nx,ny);
+                if(Math.random()<p){
+                  next[i][j] = 2;
+                  add2FireMap(i,j)
+                  break;
+              }
+              }
             }
           }
+          else if ((state == BURNED) && autoMode && !(readyToRegenerateMap.has(i.toString()+j.toString()))){
+            
+            if(Math.random()<pRegenerate){
+
+              next[i][j] = getVegetationType(i,j)
+            }
+          }
+       
         }
       }
+ 
+
 
       //Fire extintion logic
       for (const [fireCell, extinct_time] of fire_map.entries()){
         if (extinct_time == 0) {
           fire_map.delete(fireCell);
           i = fireCell[0];
-          j = fireCell[1];
-          next[i][j] = 3;
+          j = fireCell[1]; 
+          next[i][j] = BURNED;
+          add2ReadyToRegenerateMap(i,j)
+          
         } else {
           fire_map.set(fireCell, extinct_time - 1);
         }
       }
+
+     //Regenerate Logic
+     for (const [burnedCell, timeToRegenerate] of readyToRegenerateMap.entries()){
+      if (timeToRegenerate == 0) {
+        readyToRegenerateMap.delete(burnedCell);
+      } else {
+        readyToRegenerateMap.set(burnedCell, timeToRegenerate - 1);
+      }
+    }
+
       lastGrid = grid
       grid = next;
       if (drawOnce){

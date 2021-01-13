@@ -62,6 +62,13 @@
 							<span class="lever"></span>
 							</label>
 						</div>
+						<div class="switch">
+							<label>
+							Auto mode
+							<input id="autoMode" type="checkbox" onclick="change_settings()">
+							<span class="lever"></span>
+							</label>
+						</div>
 					</div>
 					<div class="reset">
 						<div class="switch">
@@ -71,14 +78,14 @@
 							</label>
 						</div>
 					</div>
-					<div class="player">
-						<label>Simulation controls</label></br>
-						<button class="button" id="stop" onclick="stop()"><i class="fas fa-stop"></i></button>
-						<button class="button" id="pause_resume" onclick="pause_resume()"><i class="fas fa-pause"></i></button>
-						<button class="button" id="next" onclick="nextTimeStep()" disabled><i class="fas fa-fast-forward"></i></button>
-					</div>
 				</div>
-		</div>
+			</div>
+			<div class="player">
+				<label>Simulation controls</label></br>
+				<button class="button" id="stop" onclick="stop()"><i class="fas fa-stop"></i></button>
+				<button class="button" id="pause_resume" onclick="pause_resume()"><i class="fas fa-pause"></i></button>
+				<button class="button" id="next" onclick="nextTimeStep()" disabled><i class="fas fa-fast-forward"></i></button>
+			</div>
 		</div>
 	</div>
 </body>
